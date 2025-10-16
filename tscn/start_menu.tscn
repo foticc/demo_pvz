@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0sq6e3j6e6be"]
+
+[ext_resource type="Texture2D" uid="uid://lhthvf7abibh" path="res://asset/Images/Background/main_bg.png" id="1_ib4fq"]
+[ext_resource type="Script" uid="uid://db8d0sg8uhr3g" path="res://classes/start_menu.gd" id="1_j0uqu"]
+[ext_resource type="Texture2D" uid="uid://b5i2ibwm5y53q" path="res://asset/Images/UI/SelectorScreenAdventure_32.png" id="2_ib4fq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0uqu"]
+atlas = ExtResource("2_ib4fq")
+region = Rect2(0, 0, 331, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib4fq"]
+atlas = ExtResource("2_ib4fq")
+region = Rect2(0, 145, 331, 145)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53cil"]
+atlas = ExtResource("2_ib4fq")
+region = Rect2(0, 145, 331, 147)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0uqu")
+
+[node name="main" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ib4fq")
+
+[node name="start_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 91.0
+offset_right = 798.0
+offset_bottom = 238.0
+mouse_default_cursor_shape = 2
+texture_normal = SubResource("AtlasTexture_j0uqu")
+texture_pressed = SubResource("AtlasTexture_ib4fq")
+texture_hover = SubResource("AtlasTexture_53cil")
