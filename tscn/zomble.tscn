@@ -1,0 +1,81 @@
+[gd_scene load_steps=17 format=3 uid="uid://bdkhu3niaw8e6"]
+
+[ext_resource type="SpriteFrames" uid="uid://ciedm6nuc462j" path="res://tres/zomble.tres" id="1_72ydc"]
+[ext_resource type="Script" uid="uid://brk7yixbihk7x" path="res://classes/zomble.gd" id="1_gtsh1"]
+[ext_resource type="Texture2D" uid="uid://cge1jgirui6tb" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_1.png" id="50_bfg2v"]
+[ext_resource type="Texture2D" uid="uid://chhf0ss6rhxmh" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_2.png" id="51_1xgls"]
+[ext_resource type="Texture2D" uid="uid://cay6fgxwl6u0f" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_3.png" id="52_ybad5"]
+[ext_resource type="Texture2D" uid="uid://c4s1l5uhv7o5w" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_4.png" id="53_0teae"]
+[ext_resource type="Texture2D" uid="uid://bdpxant0ltl6x" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_5.png" id="54_6vpiw"]
+[ext_resource type="Texture2D" uid="uid://7h6t0nj2tq3i" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_6.png" id="55_3o7jn"]
+[ext_resource type="Texture2D" uid="uid://dpwbdeglkbtdk" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_7.png" id="56_mob16"]
+[ext_resource type="Texture2D" uid="uid://b87kqj0tndm0k" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_8.png" id="57_ln1s1"]
+[ext_resource type="Texture2D" uid="uid://c6g5n7ddohkuk" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_9.png" id="58_dl1q2"]
+[ext_resource type="Texture2D" uid="uid://cfmmjrrx14csr" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_10.png" id="59_5w2ew"]
+[ext_resource type="Texture2D" uid="uid://iwlvqi000wqd" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_11.png" id="60_72wva"]
+[ext_resource type="Texture2D" uid="uid://dnnajbl2yt8id" path="res://asset/Images/Zombies/Zombie/LostHead/ZombieHead_12.png" id="61_b2lud"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gtsh1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_bfg2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_1xgls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_ybad5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_0teae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_6vpiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_3o7jn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_mob16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_ln1s1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_dl1q2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_5w2ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_72wva")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_b2lud")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h051"]
+size = Vector2(59, 128)
+
+[node name="Zomble" type="Area2D"]
+script = ExtResource("1_gtsh1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 0)
+sprite_frames = ExtResource("1_72ydc")
+animation = &"move"
+autoplay = "move"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(60, 23)
+sprite_frames = SubResource("SpriteFrames_gtsh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19.5, 7)
+shape = SubResource("RectangleShape2D_1h051")

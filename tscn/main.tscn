@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8265rdvfcrwy"]
+[gd_scene load_steps=11 format=3 uid="uid://c8265rdvfcrwy"]
 
 [ext_resource type="Texture2D" uid="uid://bwiogjvyvdg4s" path="res://asset/Images/Background/background1.jpg" id="1_ewaw7"]
 [ext_resource type="Script" uid="uid://cjr4eypo43sjq" path="res://classes/main.gd" id="1_qtm2r"]
+[ext_resource type="PackedScene" uid="uid://bdkhu3niaw8e6" path="res://tscn/zomble.tscn" id="3_8d387"]
 [ext_resource type="Texture2D" uid="uid://jg6o2fc178nl" path="res://asset/Images/UI/ChooserBackground.png" id="3_8wxc5"]
+[ext_resource type="PackedScene" uid="uid://bv4i77pmnh2oy" path="res://tscn/sun.tscn" id="3_ap273"]
 [ext_resource type="Texture2D" uid="uid://uc2p2sl210sv" path="res://asset/Images/Card/card_sunflower.png" id="4_g6ans"]
 [ext_resource type="Texture2D" uid="uid://ccwyfnp3vo85l" path="res://asset/Images/Card/card_peashooter.png" id="5_8kplt"]
 [ext_resource type="Texture2D" uid="uid://0ird7gsi85me" path="res://asset/Images/Card/card_bk.jpg" id="5_q8ief"]
@@ -18,6 +20,10 @@ centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(450, 300)
+
+[node name="Zomble" parent="." instance=ExtResource("3_8d387")]
+position = Vector2(845.7341, 149.83864)
+scale = Vector2(0.8, 0.8)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -36,7 +42,7 @@ offset_top = 61.249992
 offset_right = 62.5
 offset_bottom = 84.24999
 theme_override_colors/font_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
-text = "100"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -64,6 +70,16 @@ offset_right = 247.0
 offset_bottom = 74.0
 texture_normal = ExtResource("5_8kplt")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/TextureButton2"]
+self_modulate = Color(1, 1, 1, 0.5137255)
+layout_mode = 0
+offset_left = -1.0
+offset_right = 50.0
+offset_bottom = 70.0
+value = 20.0
+fill_mode = 2
+texture_progress = ExtResource("5_q8ief")
+
 [node name="TextureButton3" type="TextureButton" parent="CanvasLayer"]
 offset_left = 251.0
 offset_top = 4.0
@@ -71,9 +87,32 @@ offset_right = 301.0
 offset_bottom = 74.0
 texture_normal = ExtResource("6_8kplt")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/TextureButton3"]
+self_modulate = Color(1, 1, 1, 0.5137255)
+layout_mode = 0
+offset_left = -1.0
+offset_right = 50.0
+offset_bottom = 70.0
+value = 20.0
+fill_mode = 2
+texture_progress = ExtResource("5_q8ief")
+
 [node name="TextureButton4" type="TextureButton" parent="CanvasLayer"]
 offset_left = 305.0
 offset_top = 4.0
 offset_right = 355.0
 offset_bottom = 74.0
 texture_normal = ExtResource("7_ao1ln")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/TextureButton4"]
+self_modulate = Color(1, 1, 1, 0.5137255)
+layout_mode = 0
+offset_left = -1.0
+offset_right = 50.0
+offset_bottom = 70.0
+value = 20.0
+fill_mode = 2
+texture_progress = ExtResource("5_q8ief")
+
+[node name="sun" parent="." instance=ExtResource("3_ap273")]
+position = Vector2(711.3515, 302.2866)
