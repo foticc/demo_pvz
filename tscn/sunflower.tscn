@@ -166,7 +166,6 @@ size = Vector2(72, 76)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_m8xw6")
-animation = &"sun"
 autoplay = "default"
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]

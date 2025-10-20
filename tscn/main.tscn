@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8265rdvfcrwy"]
+[gd_scene load_steps=13 format=3 uid="uid://c8265rdvfcrwy"]
 
 [ext_resource type="Texture2D" uid="uid://bwiogjvyvdg4s" path="res://asset/Images/Background/background1.jpg" id="1_ewaw7"]
 [ext_resource type="Script" uid="uid://cjr4eypo43sjq" path="res://classes/main.gd" id="1_qtm2r"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://ccwyfnp3vo85l" path="res://asset/Images/Card/card_peashooter.png" id="5_8kplt"]
 [ext_resource type="Texture2D" uid="uid://0ird7gsi85me" path="res://asset/Images/Card/card_bk.jpg" id="5_q8ief"]
 [ext_resource type="Texture2D" uid="uid://8itcm3tem4l0" path="res://asset/Images/Card/card_wallnut.png" id="6_8kplt"]
+[ext_resource type="Script" uid="uid://ji4q1swtlwkk" path="res://classes/plants_btn.gd" id="6_mn4ff"]
 [ext_resource type="Texture2D" uid="uid://owmxacrb0axv" path="res://asset/Images/Card/card_snowpea.png" id="7_ao1ln"]
+[ext_resource type="PackedScene" uid="uid://de7bhf4g4honk" path="res://tscn/sunflower.tscn" id="7_d2uin"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qtm2r")
@@ -52,6 +54,8 @@ offset_top = 4.0
 offset_right = 193.0
 offset_bottom = 74.0
 texture_normal = ExtResource("4_g6ans")
+script = ExtResource("6_mn4ff")
+plant_scene = ExtResource("7_d2uin")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/TextureButton"]
 self_modulate = Color(1, 1, 1, 0.5137255)
@@ -116,3 +120,5 @@ texture_progress = ExtResource("5_q8ief")
 
 [node name="sun" parent="." instance=ExtResource("3_ap273")]
 position = Vector2(711.3515, 302.2866)
+
+[node name="PlantPreview" type="Sprite2D" parent="."]
