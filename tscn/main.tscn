@@ -1,17 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8265rdvfcrwy"]
+[gd_scene load_steps=15 format=3 uid="uid://c8265rdvfcrwy"]
 
 [ext_resource type="Texture2D" uid="uid://bwiogjvyvdg4s" path="res://asset/Images/Background/background1.jpg" id="1_ewaw7"]
 [ext_resource type="Script" uid="uid://cjr4eypo43sjq" path="res://classes/main.gd" id="1_qtm2r"]
-[ext_resource type="PackedScene" uid="uid://bdkhu3niaw8e6" path="res://tscn/zomble.tscn" id="3_8d387"]
 [ext_resource type="Texture2D" uid="uid://jg6o2fc178nl" path="res://asset/Images/UI/ChooserBackground.png" id="3_8wxc5"]
 [ext_resource type="PackedScene" uid="uid://bv4i77pmnh2oy" path="res://tscn/sun.tscn" id="3_ap273"]
+[ext_resource type="Script" uid="uid://bmm8c0edfk1yv" path="res://classes/sun_state.gd" id="4_bnc66"]
 [ext_resource type="Texture2D" uid="uid://uc2p2sl210sv" path="res://asset/Images/Card/card_sunflower.png" id="4_g6ans"]
 [ext_resource type="Texture2D" uid="uid://ccwyfnp3vo85l" path="res://asset/Images/Card/card_peashooter.png" id="5_8kplt"]
 [ext_resource type="Texture2D" uid="uid://0ird7gsi85me" path="res://asset/Images/Card/card_bk.jpg" id="5_q8ief"]
 [ext_resource type="Texture2D" uid="uid://8itcm3tem4l0" path="res://asset/Images/Card/card_wallnut.png" id="6_8kplt"]
 [ext_resource type="Script" uid="uid://ji4q1swtlwkk" path="res://classes/plants_btn.gd" id="6_mn4ff"]
+[ext_resource type="Texture2D" uid="uid://bqdy13q2w8d7d" path="res://asset/Images/Card/card_sunflower2.png" id="6_uf0e4"]
 [ext_resource type="Texture2D" uid="uid://owmxacrb0axv" path="res://asset/Images/Card/card_snowpea.png" id="7_ao1ln"]
-[ext_resource type="PackedScene" uid="uid://de7bhf4g4honk" path="res://tscn/sunflower.tscn" id="7_d2uin"]
+[ext_resource type="Texture2D" uid="uid://b4b20vdmtydko" path="res://asset/Images/Plants/SunFlower/SunFlower_4.png" id="7_d2uin"]
+[ext_resource type="PackedScene" uid="uid://x5hmcxe5040c" path="res://tscn/planting_block.tscn" id="13_bnc66"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_qtm2r")
@@ -23,10 +25,6 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(450, 300)
 
-[node name="Zomble" parent="." instance=ExtResource("3_8d387")]
-position = Vector2(845.7341, 149.83864)
-scale = Vector2(0.8, 0.8)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
@@ -36,6 +34,7 @@ offset_right = 606.0
 offset_bottom = 88.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("3_8wxc5")
+script = ExtResource("4_bnc66")
 
 [node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
 layout_mode = 0
@@ -54,8 +53,9 @@ offset_top = 4.0
 offset_right = 193.0
 offset_bottom = 74.0
 texture_normal = ExtResource("4_g6ans")
+texture_disabled = ExtResource("6_uf0e4")
 script = ExtResource("6_mn4ff")
-plant_scene = ExtResource("7_d2uin")
+preview = ExtResource("7_d2uin")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/TextureButton"]
 self_modulate = Color(1, 1, 1, 0.5137255)
@@ -63,7 +63,6 @@ layout_mode = 0
 offset_left = -1.0
 offset_right = 50.0
 offset_bottom = 70.0
-value = 20.0
 fill_mode = 2
 texture_progress = ExtResource("5_q8ief")
 
@@ -119,6 +118,60 @@ fill_mode = 2
 texture_progress = ExtResource("5_q8ief")
 
 [node name="sun" parent="." instance=ExtResource("3_ap273")]
-position = Vector2(711.3515, 302.2866)
+position = Vector2(1187, 330)
 
 [node name="PlantPreview" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.49411765)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="PlantingBlock14" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(774, 140)
+
+[node name="PlantingBlock" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(296, 228)
+
+[node name="PlantingBlock2" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(372, 229)
+
+[node name="PlantingBlock3" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(777, 240)
+
+[node name="PlantingBlock4" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(702, 137)
+
+[node name="PlantingBlock5" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(617, 137)
+
+[node name="PlantingBlock6" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(536, 137)
+
+[node name="PlantingBlock7" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(449, 136)
+
+[node name="PlantingBlock8" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(364, 136)
+
+[node name="PlantingBlock9" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(291, 517)
+
+[node name="PlantingBlock10" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(293, 422)
+
+[node name="PlantingBlock11" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(299, 327)
+
+[node name="PlantingBlock12" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(292, 138)
+
+[node name="PlantingBlock13" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(372, 328)
+
+[node name="PlantingBlock15" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(618, 236)
+
+[node name="PlantingBlock16" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(534, 238)
+
+[node name="PlantingBlock17" parent="Node" instance=ExtResource("13_bnc66")]
+position = Vector2(450, 230)

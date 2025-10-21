@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://x5hmcxe5040c"]
+
+[ext_resource type="Script" uid="uid://y87agsxf8tjm" path="res://classes/planting_block.gd" id="1_4p7s7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srac6"]
+size = Vector2(60, 74)
+
+[node name="PlantingBlock" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_4p7s7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_srac6")

@@ -2,24 +2,40 @@ extends Node2D
 
 @onready var camera: Camera2D = $Camera2D
 
-var current_plant_scene: Plant = null
+var current_plant_scene = null
 @onready var preview: Sprite2D = $PlantPreview
+
+var start_plant:bool = false
 
 func _ready() -> void:
 	add_to_group("game")
 	preview.visible = false
 	#_move_camera()
 
-func start_placing_plant(scene: PackedScene)->void:
-	self.current_plant_scene = scene.instantiate()
-	preview.texture = current_plant_scene.preview  # 假设植物有 texture
-	print("s",preview)
+func start_placing_plant(scene)->void:
+	preview.texture = scene  # 假设植物有 texture
 	preview.visible = true
+	start_plant = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(_delta)->void:
 	if preview.visible:
 		preview.global_position = get_global_mouse_position()
+
+
+func plant(pos:Vector2)->void:
+	if not start_plant:
+		return
+	var sunflower = preload("res://tscn/sunflower.tscn").instantiate()
+	sunflower.position  = pos
+	get_tree().current_scene.add_child(sunflower)
+	start_plant = false
+	preview.visible = false
+	GameManager.subtract_sun(50)
+
+
+
+
 
 func _move_camera()->void:
 	var start_pos = camera.global_position

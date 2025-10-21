@@ -1,3 +1,4 @@
+@abstract
 class_name Plant
 extends Node2D
 
@@ -8,3 +9,4 @@ var preview:Texture2D = null;
 
 func _ready() -> void:
 	self.preview = animated_sprite_2d.sprite_frames.get_frame_texture("default",0)
+	print("preview",self.preview)

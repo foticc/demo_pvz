@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://217v3pkidthn"]
-
-[ext_resource type="Script" uid="uid://iwiyd21ir423" path="res://classes/plant.gd" id="1_lu605"]
+[gd_scene format=3 uid="uid://217v3pkidthn"]
 
 [node name="plant" type="Node2D"]
-script = ExtResource("1_lu605")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 

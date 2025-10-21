@@ -1,6 +1,7 @@
-[gd_scene load_steps=40 format=3 uid="uid://de7bhf4g4honk"]
+[gd_scene load_steps=41 format=3 uid="uid://de7bhf4g4honk"]
 
 [ext_resource type="PackedScene" uid="uid://217v3pkidthn" path="res://tscn/plant.tscn" id="1_m8xw6"]
+[ext_resource type="Script" uid="uid://du0w752h0qihn" path="res://classes/sunflower.gd" id="2_08h8b"]
 [ext_resource type="Texture2D" uid="uid://jkj5hs66lggx" path="res://asset/Images/Plants/SunFlower/SunFlower_1.png" id="2_e4hd8"]
 [ext_resource type="Texture2D" uid="uid://bbuggda88ipin" path="res://asset/Images/Plants/SunFlower/SunFlower_2.png" id="3_vfo8w"]
 [ext_resource type="Texture2D" uid="uid://35u2riegkng6" path="res://asset/Images/Plants/SunFlower/SunFlower_3.png" id="4_3w7sm"]
@@ -163,11 +164,23 @@ animations = [{
 size = Vector2(72, 76)
 
 [node name="plant" instance=ExtResource("1_m8xw6")]
+script = ExtResource("2_08h8b")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_m8xw6")
 autoplay = "default"
 
+[node name="Area2D" parent="." index="1"]
+collision_mask = 2
+
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(-3, -1)
 shape = SubResource("RectangleShape2D_m8xw6")
+
+[node name="SunTimer" type="Timer" parent="." index="2"]
+wait_time = 8.0
+autostart = true
+
+[node name="SunTransformerTimer" type="Timer" parent="." index="3"]
+wait_time = 4.0
+autostart = true

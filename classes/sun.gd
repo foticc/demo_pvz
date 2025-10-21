@@ -14,8 +14,8 @@ func _target_position()->Vector2:
 
 func collect()->void:
 	var tween = create_tween()
-	tween.tween_property(self,"global_position",target,0.3)
+	tween.tween_property(self,"position",_target_position(),0.3)
 	
 	await tween.finished
-	
+	GameManager.add_sun()
 	queue_free()
