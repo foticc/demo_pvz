@@ -12,9 +12,12 @@ func _ready() -> void:
 	preview.visible = false
 	#_move_camera()
 
-func start_placing_plant(scene)->void:
-	preview.texture = scene  # 假设植物有 texture
-	preview.visible = true
+func start_placing_plant(texture:Texture2D,packed:PackedScene)->void:
+	if texture:
+		preview.texture = texture  # 假设植物有 texture
+		preview.visible = true
+	if packed:
+		current_plant_scene = packed
 	start_plant = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -26,9 +29,9 @@ func _process(_delta)->void:
 func plant(pos:Vector2)->void:
 	if not start_plant:
 		return
-	var sunflower = preload("res://tscn/sunflower.tscn").instantiate()
-	sunflower.position  = pos
-	get_tree().current_scene.add_child(sunflower)
+	var instance = current_plant_scene.instantiate()
+	instance.position  = pos
+	get_tree().current_scene.add_child(instance)
 	start_plant = false
 	preview.visible = false
 	GameManager.subtract_sun(50)

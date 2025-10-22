@@ -1,6 +1,8 @@
 extends TextureButton
 
 @export var preview: Texture2D
+@export var packaged:PackedScene
+
 @onready var progress_bar: TextureProgressBar = $TextureProgressBar
 
 var sun_cost_count = 50
@@ -12,7 +14,7 @@ func _ready() -> void:
 	GameManager.sun_change.connect(_set_sun_count)
 
 func _on_pressed()->void:
-	get_tree().call_group("game","start_placing_plant",preview)
+	get_tree().call_group("game","start_placing_plant",preview,packaged)
 
 
 func _set_sun_count(count:int)->void:

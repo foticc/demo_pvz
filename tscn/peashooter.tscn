@@ -78,3 +78,6 @@ shape = SubResource("RectangleShape2D_n20pq")
 
 [node name="Marker2D" type="Marker2D" parent="." index="2"]
 position = Vector2(28, -20)
+
+[node name="ShootTimer" type="Timer" parent="." index="3"]
+autostart = true
